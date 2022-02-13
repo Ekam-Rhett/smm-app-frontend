@@ -12,7 +12,6 @@ const Home = () => {
   }, []);
 
   const showAll = async () => {
-      console.log(process.env.SERVER_URL)
     const request = await fetch(`https://api.thebigbusiness.xyz/api/service/admin/all`, { 
         method: "GET",
         headers: {
@@ -21,8 +20,8 @@ const Home = () => {
           },
     });
     const response = await request.json()
-    if (request.status === 200) {
-      setData(response.categories);
+    if (request.status === 201) {
+      setData(response.services);
     }
   };
 
@@ -43,8 +42,8 @@ const Home = () => {
       })
       const json = await response.json();
       showAll();
-      if (response.error){
-        toast.error(response.errorMessage);
+      if (json.error){
+        toast.error(json.errorMessage);
       }
     }
       
@@ -66,6 +65,7 @@ const Home = () => {
                  <th style={{ textAlign: "center" }}>Retail Price</th>
                  <th style={{ textAlign: "center" }}>Quantity</th>
                  <th style={{ textAlign: "center" }}>Quality</th>
+                 <th style={{ textAlign: "center" }}>Action</th>
              </tr>
          </thead>
          <tbody>
@@ -82,13 +82,11 @@ const Home = () => {
                          <td>{item.retailPrice}</td>
                          <td>{item.quantity}</td>
                          <td>{item.quality}</td>
-                         <td><Link to={`update/${item._id}`}>
+                         <td><Link to={`updateservice/${item.categoryId}`}>
                       <button className="btn btn-edit">Edit</button>
                     </Link>
-                           <button className="btn btn-delete" onClick={() => onDeleteUser(item._id)}>Delete</button>
-                           <Link to={`view/${item._id}`}>
-                           <button className="btn btn-view">View</button>
-                           </Link></td>
+                           <button className="btn btn-delete" onClick={() => onDeleteUser(item.categoryId)}>Delete</button>
+                           </td>
                         </tr>
                      )
                  })}

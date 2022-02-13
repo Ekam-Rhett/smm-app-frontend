@@ -21,9 +21,9 @@ const AdminDashboard = () => {
             </Route>
             <Route path="/services" element={<ViewServices />}>
             </Route>
-            <Route path="/addservice" element={<AddEditServices />}>
+            <Route path="/services/addservice" element={<AddEditServices />}>
             </Route>
-            <Route path="/updateservice/:id" element={<AddEditServices />}>
+            <Route path="/services/updateservice/:id" element={<AddEditServices />}>
             </Route>
       </Routes>
  </div>

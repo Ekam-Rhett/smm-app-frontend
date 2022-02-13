@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../CSS/AddEdit.css';
 import { toast } from 'react-toastify'
-import axios from "axios";
 
 const initialState = {
     CategoryID: "",
@@ -51,8 +50,8 @@ const initialState = {
             })
           })
           const json = await response.json();
-          if (response.error){
-            toast.error(response.errorMessage);
+          if (json.error){
+            toast.error(json.errorMessage);
           }
         } catch (err) {
           console.error(err);
@@ -79,8 +78,8 @@ const initialState = {
             })
           })
           const json = await response.json();
-          if (response.error){
-            toast.error(response.errorMessage);
+          if (json.error){
+            toast.error(json.errorMessage);
           }
         } catch (err) {
           toast.error(err.message);
@@ -126,57 +125,66 @@ const initialState = {
           value={name}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">isDisabled</label>
+        <label htmlFor="contact">categoryId</label>
         <input
           type="text"
-          id="isDisabled"
-          name="isDisabled"
-          placeholder="Enter disabled ..."
+          id="categoryId"
+          name="categoryId"
+          placeholder="Enter categoryId ..."
           value={categoryId}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">isDisabled</label>
+        <label htmlFor="contact">supplierServiceId</label>
         <input
           type="text"
-          id="isDisabled"
-          name="isDisabled"
-          placeholder="Enter disabled ..."
+          id="supplierServiceId"
+          name="supplierServiceId"
+          placeholder="Enter supplierServiceId ..."
           value={supplierServiceId}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">isDisabled</label>
+        <label htmlFor="contact">serviceType</label>
         <input
           type="text"
-          id="isDisabled"
-          name="isDisabled"
-          placeholder="Enter disabled ..."
+          id="serviceType"
+          name="serviceType"
+          placeholder="Enter serviceType ..."
           value={serviceType}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">isDisabled</label>
+        <label htmlFor="contact">retailPrice</label>
         <input
           type="text"
-          id="isDisabled"
-          name="isDisabled"
-          placeholder="Enter disabled ..."
+          id="retailPrice"
+          name="retailPrice"
+          placeholder="Enter retailPrice ..."
           value={retailPrice}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">isDisabled</label>
+        <label htmlFor="contact">quantity</label>
         <input
           type="text"
-          id="isDisabled"
-          name="isDisabled"
-          placeholder="Enter disabled ..."
+          id="quantity"
+          name="quantity"
+          placeholder="Enter quantity ..."
           value={quantity}
           onChange={handleInputChange}
         />
-        <label htmlFor="contact">isDisabled</label>
+        <label htmlFor="contact">quality</label>
         <input
           type="text"
-          id="isDisabled"
-          name="isDisabled"
-          placeholder="Enter disabled ..."
+          id="quality"
+          name="quality"
+          placeholder="Enter quality ..."
+          value={quality}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="contact">denyLinkDuplicates</label>
+        <input
+          type="text"
+          id="denyLinkDuplicates"
+          name="denyLinkDuplicates"
+          placeholder="Enter denyLinkDuplicates ..."
           value={denyLinkDuplicates}
           onChange={handleInputChange}
         />

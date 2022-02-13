@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../../CSS/AddEdit.css';
 import { toast } from 'react-toastify'
-import axios from "axios";
 
 const initialState = {
     name: "",
@@ -42,8 +41,8 @@ const initialState = {
             })
           })
           const json = await response.json();
-          if (response.error){
-            toast.error(response.errorMessage);
+          if (json.error){
+            toast.error(json.errorMessage);
           }
         } catch (err) {
           console.error(err);
@@ -54,7 +53,7 @@ const initialState = {
         try {
             // const isDisabled1 = (isDisabled.toLocaleLowerCase() == "true")
             const isDisabled1 = Boolean(isDisabled)
-          const response = await fetch(`${process.env.SERVER_URL}/api/category/update`, {
+          const response = await fetch(`https://api.thebigbusiness.xyz/api/category/update`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -67,8 +66,8 @@ const initialState = {
             })
           })
           const json = await response.json();
-          if (response.error){
-            toast.error(response.errorMessage);
+          if (json.error){
+            toast.error(json.errorMessage);
           }
         } catch (err) {
           toast.error(err.message);

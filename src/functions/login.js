@@ -1,6 +1,3 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
-
 export const Login = async details => {
     try {
         console.log(details)

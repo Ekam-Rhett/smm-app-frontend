@@ -14,7 +14,7 @@ const Home = () => {
   const showAll = async () => {
     const request = await fetch(`https://api.thebigbusiness.xyz/api/category/all`);
     const response = await request.json()
-    if (request.status === 200) {
+    if (request.status === 201) {
       setData(response.categories);
     }
   };
@@ -36,8 +36,8 @@ const Home = () => {
       })
       const json = await response.json();
       showAll();
-      if (response.error){
-        toast.error(response.errorMessage);
+      if (json.error){
+        toast.error(json.errorMessage);
       }
     }
       
@@ -70,9 +70,7 @@ const Home = () => {
                       <button className="btn btn-edit">Edit</button>
                     </Link>
                            <button className="btn btn-delete" onClick={() => onDeleteUser(item._id)}>Delete</button>
-                           <Link to={`view/${item._id}`}>
-                           <button className="btn btn-view">View</button>
-                           </Link></td>
+                           </td>
                         </tr>
                      )
                  })}

@@ -62,7 +62,7 @@ const Header = () => {
               <MenuItem icon={<FaList />}><Link to="/admindashboard">View Categories</Link></MenuItem>
               <MenuItem icon={<FaList />}><Link to="/admindashboard/add">Add Categories</Link></MenuItem>
               <MenuItem icon={<FaList />}><Link to="/admindashboard/services">View Services</Link></MenuItem>
-              <MenuItem icon={<FaList />}><Link to="/admindashboard/addservice">Add Services</Link></MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/admindashboard/services/addservice">Add Services</Link></MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
