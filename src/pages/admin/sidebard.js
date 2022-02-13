@@ -15,7 +15,6 @@ import {
 //import icons from react icons
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
 import { BiCog } from "react-icons/bi";
 
 
@@ -26,6 +25,10 @@ import "../../CSS/Header.css";
 
 const Header = () => {
   
+  const Logout = () => {
+    localStorage.clear();
+    window.location.href='/admin'
+}
     //create initial menuCollapse state using useState hook
     const [menuCollapse, setMenuCollapse] = useState(false)
 
@@ -56,18 +59,15 @@ const Header = () => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem active={true} icon={<FiHome />}>
-                Home
-              </MenuItem>
-              <MenuItem icon={<FaList />}><Link to="/admindashboard/categoriesall">categoriesall</Link></MenuItem>
-              <MenuItem icon={<FaRegHeart />}><Link to="/admindashboard/add">Add User</Link></MenuItem>
-              <MenuItem icon={<RiPencilLine />}><Link to="/admindashboard/about">About</Link></MenuItem>
-              <MenuItem icon={<BiCog />}><Link to="/admindashboard">Dashboard</Link></MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/admindashboard">View Categories</Link></MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/admindashboard/add">Add Categories</Link></MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/admindashboard/services">View Services</Link></MenuItem>
+              <MenuItem icon={<FaList />}><Link to="/admindashboard/addservice">Add Services</Link></MenuItem>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut />}onClick={() => Logout()}>Logout</MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>

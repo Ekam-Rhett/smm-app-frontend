@@ -11,10 +11,6 @@ function AdminLogin() {
     const [error, setError] = useState("");
 Login()
 
-    const Logout = () => {
-        localStorage.clear();
-        window.location.href='/admin'
-    }
 //react parsing
     return (
                 <LoginForm Login={Login} error={error}/>

@@ -8,12 +8,15 @@ import LoginForm from './pages/pricing.js';
 import AdminLogin from './pages/admin/adminlogin.js';
 import AdminDashboard from './pages/admin/admindashboard.js';
 import FormList from './pages/FAQ.js';
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return ( 
       <ChakraProvider>
       <div >
           <Navibar />
+          <ToastContainer position="top-center"/>
             <Routes>
             <Route exact path="/" element={<Home />}>
             </Route>

@@ -1,31 +1,30 @@
+import React from 'react'
 import SideBar from './sidebard.js'
 import { Routes, Route } from "react-router-dom";
-import CategoriesAll from './categoriesall.js'
-import AddEdit from './video/AddEdit.js'
-import View from './video/View.js'
-import About from './video/About.js'
-import Home from './video/home.js'
-import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+import AddEdit from './AddEdit.js'
+import Home from './home.js'
+import ViewServices from './viewservices.js'
+import AddEditServices from './AddEditServices'
 import '../../CSS/admindashboard.css'
 
 const AdminDashboard = () => {
   
     return (
       <div>
-     <SideBar />
+     <SideBar style={{ position:"relative" }}/>
         <Routes>
             <Route exact path="/" element={<Home />}>
             </Route>
             <Route path="/add" element={<AddEdit />}>
             </Route>
-            <Route path="/update:id" element={<AddEdit />}>
+            <Route path="/update/:id" element={<AddEdit />}>
             </Route>
-            <Route path="/view:id" element={<View />}>
+            <Route path="/services" element={<ViewServices />}>
             </Route>
-            <Route path="/about" element={<About />}>
-            </Route> 
+            <Route path="/addservice" element={<AddEditServices />}>
+            </Route>
+            <Route path="/updateservice/:id" element={<AddEditServices />}>
+            </Route>
       </Routes>
  </div>
     )
