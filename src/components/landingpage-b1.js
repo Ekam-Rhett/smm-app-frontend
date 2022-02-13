@@ -8,7 +8,7 @@ function Block1() {
 <div>
             <Box class="landingpage" h="700px" bgGradient='linear(to-r, green.200, blue.500)'>
                 <Container class="landingcontainer">
-                    <flexWrap>
+
                     <Flex class="wrapper">
                         <Box p='4'>
                             <img src="https://ucarecdn.com/7304a42f-950d-42d2-a0af-ef8372a561de/" class="img-fluid" alt="lplogo"/>
@@ -26,7 +26,7 @@ function Block1() {
                         <Button ml='50%' colorScheme='teal' variant='solid' >
                             Buy Now
                         </Button>
-                        </flexWrap>
+
                 </Container>
             </Box>
             <Box class="lpb2" w="100%" h="1000px">

@@ -16,6 +16,8 @@ function Loginform({ Login, error }) {
     <form onSubmit={submitHandler}>
         <div className="form-inner">
             <h2>Login Form</h2>
+            <h3>email: rick@gmail.com</h3>
+            <h3>password: 123456</h3>
             <div></div>
             {(error !== "") ? (<div className="error">{error}</div> ) : ""}
             <div className="form-group">
