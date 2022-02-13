@@ -48,7 +48,7 @@ export default class LoginForm extends React.Component {
         </div>  
         <button 
             type="submit" 
-            className="btn btn-primary">Save
+            className="btn btn-primary">Buy
         </button>
         </form>
         

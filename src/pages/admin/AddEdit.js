@@ -51,8 +51,7 @@ const initialState = {
 
       async function updateUser(state) {
         try {
-            // const isDisabled1 = (isDisabled.toLocaleLowerCase() == "true")
-            const isDisabled1 = Boolean(isDisabled)
+            let isDisabled1 = (isDisabled.toLowerCase() === 'true');
           const response = await fetch(`https://api.thebigbusiness.xyz/api/category/update`, {
             method: "POST",
             headers: {
@@ -62,7 +61,7 @@ const initialState = {
             body: JSON.stringify({
               categoryId: id,
                 name: state.name,
-              isDisabled: state.isDisabled1
+              isDisabled: isDisabled1
             })
           })
           const json = await response.json();

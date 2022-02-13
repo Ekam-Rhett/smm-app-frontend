@@ -21,7 +21,7 @@ const initialState = {
     const navigate = useNavigate();
   
     const { id } = useParams();
-  
+  console.log(id)
     const handleInputChange = (e) => {
       let { name, value } = e.target;
       setState({
@@ -31,7 +31,10 @@ const initialState = {
     };
   
     async function addUser() {
+        let isDisabled1 = (denyLinkDuplicates.toLowerCase() === 'true');
+
         try {
+            
           const response = await fetch(`https://api.thebigbusiness.xyz/api/service/admin/create`, {
             method: "POST",
             headers: {
@@ -46,7 +49,7 @@ const initialState = {
                 retailPrice: retailPrice,
                 quantity: quantity,
                 quality: quality,
-                denyLinkDuplicates: denyLinkDuplicates,
+                denyLinkDuplicates: isDisabled1,
             })
           })
           const json = await response.json();
@@ -59,6 +62,7 @@ const initialState = {
       }
 
       async function updateUser(state) {
+        let isDisabled1 = (state.denyLinkDuplicates.toLowerCase() === 'true');
         try {
           const response = await fetch(`https://api.thebigbusiness.xyz/api/service/admin/update`, {
             method: "POST",
@@ -67,20 +71,21 @@ const initialState = {
               'Authorization': localStorage.getItem("authToken")
             },
             body: JSON.stringify({
-                categoryId: state.categoryId,
+                serviceId: id,
                 supplierServiceId: state.supplierServiceId,
                 name: state.name,
                 serviceType: state.serviceType,
                 retailPrice: state.retailPrice,
                 quantity: state.quantity,
                 quality: state.quality,
-                denyLinkDuplicates: state.denyLinkDuplicates,
+                denyLinkDuplicates: isDisabled1
             })
           })
           const json = await response.json();
           if (json.error){
             toast.error(json.errorMessage);
           }
+          toast.error(json.message)
         } catch (err) {
           toast.error(err.message);
         }

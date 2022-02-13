@@ -37,7 +37,7 @@ const Home = () => {
           'Authorization': localStorage.getItem("authToken")
         },
         body: JSON.stringify({
-          categoryId: id
+          serviceId: id
         })
       })
       const json = await response.json();
@@ -75,17 +75,17 @@ const Home = () => {
                      <tr key={index}>
                          <th scope="row">{index + 1}</th>
                          <td>{item.name}</td>
-                         <td>{item.categoryId}</td>
+                         <td>{item._id}</td>
                          <td>{i}</td>
                          <td>{item.supplierServiceId}</td>
                          <td>{item.serviceType}</td>
                          <td>{item.retailPrice}</td>
                          <td>{item.quantity}</td>
                          <td>{item.quality}</td>
-                         <td><Link to={`updateservice/${item.categoryId}`}>
+                         <td><Link to={`updateservice/${item._id}`}>
                       <button className="btn btn-edit">Edit</button>
                     </Link>
-                           <button className="btn btn-delete" onClick={() => onDeleteUser(item.categoryId)}>Delete</button>
+                           <button className="btn btn-delete" onClick={() => onDeleteUser(item._id)}>Delete</button>
                            </td>
                         </tr>
                      )

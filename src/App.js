@@ -10,6 +10,7 @@ import AdminDashboard from './pages/admin/admindashboard.js';
 import FormList from './pages/FAQ.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Services from './pages/services.js'
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
             <Route path="/pricing" element={<LoginForm />}>
             </Route>
             <Route path="/FAQ" element={<FormList />}>
+            </Route>
+            <Route path="/services" element={<Services />}>
             </Route>
             </Routes>
         </div>

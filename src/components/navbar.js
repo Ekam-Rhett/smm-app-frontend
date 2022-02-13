@@ -20,14 +20,7 @@ function Navibar() {
           navbarScroll
         >
         </Nav>
-        <NavDropdown title="Products" id="navbarScrollingDropdown">
-            <NavDropdown.Item><Link to="/pricing">Likes</Link></NavDropdown.Item>
-            <NavDropdown.Item><Link to="/pricing">Followers</Link></NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action5">
-              Something else here
-            </NavDropdown.Item>
-          </NavDropdown>
+        <Nav.Link><Link to="/services">Services</Link></Nav.Link>
         <Nav.Link><Link to="/contact">Contact Us</Link></Nav.Link>
           <Nav.Link><Link to="/FAQ">FAQ</Link></Nav.Link>
       </Navbar.Collapse>
