@@ -30,7 +30,7 @@ const initialState = {
     async function addUser() {
         try {
             const isDisabled1 = (isDisabled === "true")
-          const response = await fetch("http://localhost:12346/api/category/create", {
+          const response = await fetch(`${process.env.SERVER_URL}/api/category/create`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const initialState = {
         try {
             // const isDisabled1 = (isDisabled.toLocaleLowerCase() == "true")
             const isDisabled1 = Boolean(isDisabled)
-          const response = await fetch(`http://localhost:12346/api/category/update`, {
+          const response = await fetch(`${process.env.SERVER_URL}/api/category/update`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',

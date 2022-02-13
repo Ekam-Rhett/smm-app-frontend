@@ -33,7 +33,7 @@ const initialState = {
   
     async function addUser() {
         try {
-          const response = await fetch("http://localhost:12346/api/service/admin/create", {
+          const response = await fetch(`${process.env.SERVER_URL}/api/service/admin/create`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ const initialState = {
 
       async function updateUser(state) {
         try {
-          const response = await fetch(`http://localhost:12346/api/service/admin/update`, {
+          const response = await fetch(`${process.env.SERVER_URL}/api/service/admin/update`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
   const showAll = async () => {
-    const request = await fetch('http://localhost:12346/api/category/all');
+    const request = await fetch(`${process.env.SERVER_URL}/api/category/all`);
     const response = await request.json()
     if (request.status === 200) {
       setData(response.categories);
@@ -24,7 +24,7 @@ const Home = () => {
       if (
       window.confirm("Are you sure that you wanted to delete that user record")
     ){
-      const response = await fetch("http://localhost:12346/api/category/delete", {
+      const response = await fetch(`${process.env.SERVER_URL}/api/category/delete`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

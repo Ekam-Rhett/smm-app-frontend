@@ -7,7 +7,7 @@ window.addEventListener('load', (event) => {
       console.log("hi")
     if (localStorage.getItem("authToken") !== null) {
         try {
-            const request = await fetch("http://localhost:12346/api/admin/profile", {
+            const request = await fetch(`${process.env.SERVER_URL}/api/admin/profile`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
