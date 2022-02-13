@@ -4,7 +4,7 @@ import React from "react";
 async function getStripe(instaname, email) {
     
     try {
-      const response = await fetch(`${process.env.SERVER_URL}/api/payment/stripe/create`, {
+      const response = await fetch(`https://api.thebigbusiness.xyz/api/payment/stripe/create`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

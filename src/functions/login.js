@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 export const Login = async details => {
     try {
         console.log(details)
-        const request = await fetch(`${process.env.SERVER_URL}/api/admin/login1`, {
+        const request = await fetch(`https://api.thebigbusiness.xyz/api/admin/login1`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

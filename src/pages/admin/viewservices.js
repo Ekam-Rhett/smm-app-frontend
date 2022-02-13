@@ -12,7 +12,14 @@ const Home = () => {
   }, []);
 
   const showAll = async () => {
-    const request = await fetch(`${process.env.SERVER_URL}/api/service/admin/all`);
+      console.log(process.env.SERVER_URL)
+    const request = await fetch(`https://api.thebigbusiness.xyz/api/service/admin/all`, { 
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem("authToken")
+          },
+    });
     const response = await request.json()
     if (request.status === 200) {
       setData(response.categories);
@@ -24,7 +31,7 @@ const Home = () => {
       if (
       window.confirm("Are you sure that you wanted to delete that user record")
     ){
-      const response = await fetch(`${process.env.SERVER_URL}/api/service/admin/delete`, {
+      const response = await fetch(`https://api.thebigbusiness.xyz/api/service/admin/delete`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

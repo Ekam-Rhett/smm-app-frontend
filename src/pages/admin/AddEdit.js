@@ -30,7 +30,7 @@ const initialState = {
     async function addUser() {
         try {
             const isDisabled1 = (isDisabled === "true")
-          const response = await fetch(`${process.env.SERVER_URL}/api/category/create`, {
+          const response = await fetch(`https://api.thebigbusiness.xyz/api/category/create`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
