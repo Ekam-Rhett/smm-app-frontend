@@ -83,7 +83,6 @@ const initialState = {
         if (!id) {
           addUser(state);
         } else {
-            console.log(e)
           updateUser(state, id);
         }
   

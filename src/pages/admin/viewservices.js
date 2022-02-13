@@ -12,7 +12,7 @@ const Home = () => {
   }, []);
 
   const showAll = async () => {
-    const request = await fetch('http://localhost:12346/api/category/all');
+    const request = await fetch('http://localhost:12346/api/service/admin/all');
     const response = await request.json()
     if (request.status === 200) {
       setData(response.categories);
@@ -24,7 +24,7 @@ const Home = () => {
       if (
       window.confirm("Are you sure that you wanted to delete that user record")
     ){
-      const response = await fetch("http://localhost:12346/api/category/delete", {
+      const response = await fetch("http://localhost:12346/api/service/admin/delete", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -53,19 +53,28 @@ const Home = () => {
                  <th style={{ textAlign: "center" }}>Index</th>
                  <th style={{ textAlign: "center" }}>Name</th>
                  <th style={{ textAlign: "center" }}>ID</th>
-                 <th style={{ textAlign: "center" }}>Is Disabled</th>
-                 <th style={{ textAlign: "center" }}>Action</th>
+                 <th style={{ textAlign: "center" }}>Is Active</th>
+                 <th style={{ textAlign: "center" }}>Service ID</th>
+                 <th style={{ textAlign: "center" }}>Type</th>
+                 <th style={{ textAlign: "center" }}>Retail Price</th>
+                 <th style={{ textAlign: "center" }}>Quantity</th>
+                 <th style={{ textAlign: "center" }}>Quality</th>
              </tr>
          </thead>
          <tbody>
              {data && data.map((item, index) => {
-               let i=item.isDisabled.toString()
+               let i=item.isActive.toString()
                  return (
                      <tr key={index}>
                          <th scope="row">{index + 1}</th>
                          <td>{item.name}</td>
-                         <td>{item._id}</td>
+                         <td>{item.categoryId}</td>
                          <td>{i}</td>
+                         <td>{item.supplierServiceId}</td>
+                         <td>{item.serviceType}</td>
+                         <td>{item.retailPrice}</td>
+                         <td>{item.quantity}</td>
+                         <td>{item.quality}</td>
                          <td><Link to={`update/${item._id}`}>
                       <button className="btn btn-edit">Edit</button>
                     </Link>

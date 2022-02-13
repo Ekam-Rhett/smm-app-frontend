@@ -33,16 +33,21 @@ const initialState = {
   
     async function addUser() {
         try {
-            const isDisabled1 = (isDisabled === "true")
-          const response = await fetch("http://localhost:12346/api/category/create", {
+          const response = await fetch("http://localhost:12346/api/service/admin/create", {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
               'Authorization': localStorage.getItem("authToken")
             },
             body: JSON.stringify({
-              name: name,
-              isDisabled: isDisabled1
+                categoryId: categoryId,
+                supplierServiceId: supplierServiceId,
+                name: name,
+                serviceType: serviceType,
+                retailPrice: retailPrice,
+                quantity: quantity,
+                quality: quality,
+                denyLinkDuplicates: denyLinkDuplicates,
             })
           })
           const json = await response.json();
@@ -56,18 +61,21 @@ const initialState = {
 
       async function updateUser(state) {
         try {
-            // const isDisabled1 = (isDisabled.toLocaleLowerCase() == "true")
-            const isDisabled1 = Boolean(isDisabled)
-          const response = await fetch(`http://localhost:12346/api/category/update`, {
+          const response = await fetch(`http://localhost:12346/api/service/admin/update`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
               'Authorization': localStorage.getItem("authToken")
             },
             body: JSON.stringify({
-              categoryId: id,
+                categoryId: state.categoryId,
+                supplierServiceId: state.supplierServiceId,
                 name: state.name,
-              isDisabled: state.isDisabled1
+                serviceType: state.serviceType,
+                retailPrice: state.retailPrice,
+                quantity: state.quantity,
+                quality: state.quality,
+                denyLinkDuplicates: state.denyLinkDuplicates,
             })
           })
           const json = await response.json();
@@ -81,17 +89,16 @@ const initialState = {
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (!name || !isDisabled) {
+      if (!categoryId || !supplierServiceId || !name || !serviceType || !retailPrice || !quantity || !quality || !denyLinkDuplicates) {
         toast.error("Please provide value in each input field");
       } else {
         if (!id) {
           addUser(state);
         } else {
-            console.log(e)
           updateUser(state, id);
         }
   
-        setTimeout(() => navigate("/admindashboard"), 500);
+        setTimeout(() => navigate("/admindashboard/services"), 500);
       }
     };
 
@@ -125,7 +132,7 @@ const initialState = {
           id="isDisabled"
           name="isDisabled"
           placeholder="Enter disabled ..."
-          value={isDisabled}
+          value={categoryId}
           onChange={handleInputChange}
         />
         <label htmlFor="contact">isDisabled</label>
@@ -134,7 +141,7 @@ const initialState = {
           id="isDisabled"
           name="isDisabled"
           placeholder="Enter disabled ..."
-          value={isDisabled}
+          value={supplierServiceId}
           onChange={handleInputChange}
         />
         <label htmlFor="contact">isDisabled</label>
@@ -143,7 +150,7 @@ const initialState = {
           id="isDisabled"
           name="isDisabled"
           placeholder="Enter disabled ..."
-          value={isDisabled}
+          value={serviceType}
           onChange={handleInputChange}
         />
         <label htmlFor="contact">isDisabled</label>
@@ -152,7 +159,7 @@ const initialState = {
           id="isDisabled"
           name="isDisabled"
           placeholder="Enter disabled ..."
-          value={isDisabled}
+          value={retailPrice}
           onChange={handleInputChange}
         />
         <label htmlFor="contact">isDisabled</label>
@@ -161,7 +168,7 @@ const initialState = {
           id="isDisabled"
           name="isDisabled"
           placeholder="Enter disabled ..."
-          value={isDisabled}
+          value={quantity}
           onChange={handleInputChange}
         />
         <label htmlFor="contact">isDisabled</label>
@@ -170,7 +177,7 @@ const initialState = {
           id="isDisabled"
           name="isDisabled"
           placeholder="Enter disabled ..."
-          value={isDisabled}
+          value={denyLinkDuplicates}
           onChange={handleInputChange}
         />
 
