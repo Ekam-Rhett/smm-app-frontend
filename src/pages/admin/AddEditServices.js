@@ -21,7 +21,7 @@ const initialState = {
     const navigate = useNavigate();
   
     const { id } = useParams();
-  console.log(id)
+    
     const handleInputChange = (e) => {
       let { name, value } = e.target;
       setState({

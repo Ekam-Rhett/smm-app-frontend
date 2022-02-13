@@ -11,6 +11,7 @@ import FormList from './pages/FAQ.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Services from './pages/services.js'
+import Success from './pages/success'
 
 
 function App() {
@@ -28,11 +29,13 @@ function App() {
             </Route>
             <Route path="/admindashboard/*" element={<AdminDashboard />}>
             </Route>
-            <Route path="/pricing" element={<LoginForm />}>
+            <Route path="/pricing/:id" element={<LoginForm />}>
             </Route>
             <Route path="/FAQ" element={<FormList />}>
             </Route>
             <Route path="/services" element={<Services />}>
+            </Route>
+            <Route path="/stripe/success/:id" element={<Success />}>
             </Route>
             </Routes>
         </div>

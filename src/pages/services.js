@@ -3,12 +3,15 @@ import {useState, useEffect} from 'react'
 import '../CSS/admindashboard.css'
 import { Link } from 'react-router-dom';
 
+
 const Services = () => {
     let [data, setData] = useState([]);
 
   useEffect(() => {
       showAll();
   }, []);
+
+
 
   const showAll = async () => {
     const request = await fetch(`https://api.thebigbusiness.xyz/api/service/public`);
@@ -34,7 +37,7 @@ const Services = () => {
          </thead>
          <tbody>
              {data && data.map((item, index) => {
-                 console.log(item)
+                 console.log()
                  return (
                      <tr key={index}>
                          <th scope="row">{index + 1}</th>
@@ -44,7 +47,7 @@ const Services = () => {
                          <td>{item.quantity}</td>
                          <td>{item.category}</td>
                          <td>
-                            <Link to={`/pricing`}>
+                            <Link to={`/pricing/${item.serviceId}`}>
                                 <button className="btn btn-edit">Buy</button>
                             </Link>                           
                             </td>
