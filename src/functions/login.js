@@ -1,7 +1,7 @@
 export const Login = async details => {
     try {
         console.log(details)
-        const request = await fetch(`https://api.thebigbusiness.xyz/api/admin/login1`, {
+        const request = await fetch(`https://api.thebigbusiness.xyz/api/admin/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
